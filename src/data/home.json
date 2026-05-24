@@ -1,48 +1,35 @@
 {
-  "name": "John Doe",
+  "name": "Emyr Fauzan",
   "photoUrl": "favicon.svg",
-  "intro": "A brief, compelling introduction about who you are and what you do. Mention your core philosophy, your passion for building digital products, and your drive for creating efficient, high-impact solutions.",
-  "introHtml": "A brief, compelling introduction about who you are and what you do. Mention your core <span class='text-white font-bold'>philosophy</span>, your passion for building digital products, and your drive for creating <span class='text-white font-bold'>efficient</span>, <span class='text-white font-bold'>high-impact</span> solutions.",
-  "webpageTitle": "John Doe",
-  "resumeUrl": "https://example-files.online-convert.com/document/pdf/example.pdf",
+  "intro": "I’m an Information Technology student interested in backend development and cybersecurity. I enjoy learning CTF topics like web exploitation, networking, and digital forensics, with a growing focus on blue team work and system security.",
+"introHtml": "I’m an Information Technology student interested in <span class='text-white font-bold'>backend development</span> and <span class='text-white font-bold'>cybersecurity</span>. I enjoy learning CTF topics like web exploitation, networking, and digital forensics, with a growing focus on <span class='text-white font-bold'>blue team</span> work and system security.",
+  "webpageTitle": "Portfolio",
+  "resumeUrl": "#",
 
-  "_comment": "Add your social links below. Leave the 'url' empty to hide the icon. Set 'showInContact' to true or false to control if it appears in the Contact section.",
   "socials": [
     {
       "name": "GitHub",
-      "url": "https://github.com/[YOUR_USER_NAME]",
+      "url": "https://github.com/Emir-A",
       "icon": "mdi:github",
       "showInContact": true
     },
     {
       "name": "LinkedIn",
-      "url": "https://linkedin.com/in/[YOUR_USER_NAME]",
+      "url": "https://www.linkedin.com/in/emyr-fauzan/",
       "icon": "mdi:linkedin",
       "showInContact": true
     },
     {
-      "name": "Leetcode",
-      "url": "#",
-      "icon": "devicon-plain:leetcode",
-      "showInContact": false
-    },
-    {
-      "name": "Behance",
-      "url": "#",
-      "icon": "devicon-plain:behance",
-      "showInContact": false
-    },
-    {
       "name": "Email",
-      "url": "mailto:your-mail@example.com",
+      "url": "mailto:emirfauzan34@gmail.com",
       "icon": "mdi:email",
       "showInContact": true
     },
     {
       "name": "Whatsapp",
-      "url": "https://wa.me/[YOUR_WHATSAPP_NUMBER]",
+      "url": "#",
       "icon": "mdi:whatsapp",
-      "showInContact": true
+      "showInContact": false
     },
     {
       "name": "Facebook",
@@ -64,9 +51,9 @@
     },
     {
       "name": "Twitter",
-      "url": "#",
+      "url": "https://x.com/home",
       "icon": "mdi:twitter",
-      "showInContact": false
+      "showInContact": true
     }
   ]
 }

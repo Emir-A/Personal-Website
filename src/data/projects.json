@@ -1,12 +1,12 @@
 [
   {
-    "title": "Awesome Website",
-    "description": "A high-performance, SEO-optimized web application built with modern frameworks to showcase technical expertise.",
+    "title": "Personal Portfolio Website",
+    "description": "A personal portfolio website built from an Astro template to present academic background, technical interests, projects, and contact information in a clean web format.",
     "images": ["astro-01.webp", "astro-02.jpeg"],
-    "tech": ["Astro", "Tailwind"],
+    "tech": ["Astro", "Tailwind CSS", "HTML", "CSS"],
     "platforms": ["web"],
     "link": "",
-    "category": "Published Website"
+    "category": "Portfolio"
   },
   {
     "title": "Demo Mobile App",
