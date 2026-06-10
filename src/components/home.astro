@@ -1,44 +1,11 @@
 ---
 import { Icon } from 'astro-icon/components';
-import localData from '../data/home.json';
 import { resolveAssetImage } from '../utils/images';
+import { getProfileData } from '../utils/profile';
 import { Image } from 'astro:assets';
 
-//Data Definitions
-interface Social {
-  name: string;
-  url: string;
-  icon: string;
-}
-
-interface ProfileData {
-  name: string;
-  photoUrl: string;
-  intro: string;
-  introHtml: string;
-  resumeUrl: string;
-  socials: Social[];
-}
-
-const isApiLive = import.meta.env.PROD; // Auto true in production
-const BASE_URL = import.meta.env.PUBLIC_API_BASE_URL;
-
-let data: ProfileData; // data as ProfileData
-
-if (isApiLive && BASE_URL) {
-  try {
-    const response = await fetch(`${BASE_URL}/home`);
-    if (!response.ok) throw new Error('Network response was not ok');
-    data = await response.json();
-  } catch (error) {
-    console.error("API Fetch failed, falling back to mock data", error);
-    data = localData as ProfileData;
-  }
-} else {
-  data = localData as ProfileData;
-}
-
-const { name, photoUrl, intro, introHtml, resumeUrl, socials } = data;
+const data = await getProfileData();
+const { name, photoUrl, introHtml, resumeUrl, socials } = data;
 const profileImage = await resolveAssetImage(photoUrl);
 ---
 
@@ -79,7 +46,7 @@ const profileImage = await resolveAssetImage(photoUrl);
     <br>
     <p 
       class="text-gray font-body text-lg leading-relaxed" 
-      set:html={intro} 
+      set:html={introHtml} 
     />
   </div>
 

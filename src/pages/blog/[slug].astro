@@ -1,0 +1,135 @@
+---
+import { getCollection, render } from "astro:content";
+import { Icon } from "astro-icon/components";
+import Layout from "../../layouts/Layout.astro";
+import Nav from "../../components/nav.astro";
+
+export async function getStaticPaths() {
+  const posts = await getCollection("blog");
+
+  return posts
+    .filter((post) => !post.data.draft)
+    .map((post) => ({
+      params: { slug: post.id.replace(/\.md$/, "") },
+      props: { post },
+    }));
+}
+
+const { post } = Astro.props;
+const { Content } = await render(post);
+---
+
+<Layout title={post.data.title}>
+  <Nav />
+
+  <article class="section-container min-h-[80vh] pt-28 md:pt-36">
+    <div class="container mx-auto max-w-3xl">
+      <a href="/blog" class="inline-flex items-center gap-2 text-accent/80 hover:text-accent text-sm mb-8 transition-colors">
+        <Icon name="mdi:arrow-left" class="w-4 h-4" />
+        Lorem ipsum
+      </a>
+
+      <header class="mb-10">
+        <div class="flex flex-wrap items-center gap-3 text-subtext text-xs mb-5">
+          <Icon name="mdi:calendar-outline" class="w-4 h-4 text-accent" />
+          <time datetime={post.data.date.toISOString()}>
+            {post.data.date.toLocaleDateString("en", {
+              year: "numeric",
+              month: "long",
+              day: "numeric",
+            })}
+          </time>
+        </div>
+
+        <h1 class="text-4xl md:text-6xl font-heading font-bold text-maintext mb-5 leading-tight">
+          {post.data.title}
+        </h1>
+
+        <p class="text-subtext text-lg leading-relaxed">
+          {post.data.description}
+        </p>
+
+        <div class="flex flex-wrap gap-2 mt-6">
+          {post.data.tags.map((tag) => (
+            <span class="rounded-md text-[10px] px-3 py-1 bg-accent/5 border border-accent/10 text-accent/80">
+              {tag}
+            </span>
+          ))}
+        </div>
+      </header>
+
+      <div class="writeup-content text-subtext font-body leading-relaxed">
+        <Content />
+      </div>
+    </div>
+  </article>
+</Layout>
+
+<style is:global>
+  .writeup-content h2 {
+    color: var(--color-maintext);
+    font-family: var(--font-heading);
+    font-size: 1.75rem;
+    font-weight: 700;
+    margin-top: 2.5rem;
+    margin-bottom: 1rem;
+  }
+
+  .writeup-content h3 {
+    color: var(--color-maintext);
+    font-family: var(--font-heading);
+    font-size: 1.25rem;
+    font-weight: 700;
+    margin-top: 2rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .writeup-content p,
+  .writeup-content ul,
+  .writeup-content ol {
+    margin-bottom: 1.1rem;
+  }
+
+  .writeup-content ul,
+  .writeup-content ol {
+    padding-left: 1.5rem;
+  }
+
+  .writeup-content ul {
+    list-style: disc;
+  }
+
+  .writeup-content ol {
+    list-style: decimal;
+  }
+
+  .writeup-content a {
+    color: var(--color-accent);
+    text-decoration: underline;
+    text-underline-offset: 0.25em;
+  }
+
+  .writeup-content code {
+    color: var(--color-maintext);
+    background: color-mix(in srgb, var(--color-accent), transparent 88%);
+    border: 1px solid color-mix(in srgb, var(--color-accent), transparent 82%);
+    border-radius: 0.35rem;
+    padding: 0.1rem 0.35rem;
+    font-size: 0.9em;
+  }
+
+  .writeup-content pre {
+    overflow-x: auto;
+    background: color-mix(in srgb, var(--color-background), black 18%);
+    border: 1px solid color-mix(in srgb, var(--color-accent), transparent 82%);
+    border-radius: 0.75rem;
+    padding: 1rem;
+    margin: 1.5rem 0;
+  }
+
+  .writeup-content pre code {
+    background: transparent;
+    border: 0;
+    padding: 0;
+  }
+</style>

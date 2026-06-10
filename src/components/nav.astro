@@ -1,31 +1,37 @@
 ---
 import { Icon } from 'astro-icon/components';
 import ThemeToggle from './theme-toggle.astro';
+
 interface NavItem {
   label: string;
   href: string;
   icon: string;
 }
 
+const isBlogPage = Astro.url.pathname.startsWith('/blog');
+const destination = isBlogPage
+  ? { label: "Portfolio", href: "/#home" }
+  : { label: "Blog", href: "/blog" };
+
 const navItems: NavItem[] = [
   {
     label: "Home",
-    href: "#home",
+    href: "/#home",
     icon: `mdi:home`,
   },
   {
     label: "Career",
-    href: "#career",
+    href: "/#experience",
     icon: `mdi:work`,
   },
   {
     label: "Projects",
-    href: "#projects",
+    href: "/#projects",
     icon: `mdi:computer`,
   },
   {
     label: "Tech",
-    href: "#tech",
+    href: "/#tech",
     icon: `mdi:code-tags`,
   },
   // {
@@ -35,7 +41,7 @@ const navItems: NavItem[] = [
   // },
   {
     label: "Contact",
-    href: "#contact",
+    href: "/#contact",
     icon: `mdi:message`,
   }
 ];
@@ -49,9 +55,9 @@ const navItems: NavItem[] = [
     id="main-nav"
     class="fixed left-1/2 -translate-x-1/2 z-20 border-[1.2px] border-transparent transition-all duration-500 ease-in-out md:top-6 md:bottom-auto bottom-0 w-[80%]"
   >
-    <div class="container mx-auto flex justify-center items-center p-3 reveal-content" style="animation-delay: 700ms;">
+    <div class="mx-auto flex justify-center items-center p-3 md:px-5 reveal-content" style="animation-delay: 700ms;">
       <ul
-        class="flex w-full justify-between md:space-x-6 md:justify-center md:gap-12 gap-1"
+        class="flex w-full justify-between md:w-auto md:justify-center md:gap-7 gap-1"
       >
         {
           navItems.map((item) => (
@@ -73,6 +79,14 @@ const navItems: NavItem[] = [
             </li>
           ))
         }
+        <li class="flex-1 md:flex-none md:border-l md:border-accent/20 md:pl-5">
+          <a
+            href={destination.href}
+            class="destination-link flex flex-col items-center gap-1 text-accent transition-colors text-xs md:text-base relative group hover:text-maintext"
+          >
+            <span>{destination.label}</span>
+          </a>
+        </li>
       </ul>
     </div>
   </nav>
@@ -107,7 +121,6 @@ const navItems: NavItem[] = [
    nav.scrolling {
     background-color: color-mix(in srgb, var(--color-background), transparent 75%);
     border-color: color-mix(in srgb, var(--color-accent) 30%, transparent);
-    
     border-radius: 9999px;
     backdrop-filter: blur(10px);
   }
@@ -240,19 +253,18 @@ const navItems: NavItem[] = [
     if (currentScrollY > 0) {
       nav?.classList.add("scrolling");
 
-      const scrollProgress = Math.min(window.scrollY / maxScroll, 1);
+      const scrollProgress = Math.min(currentScrollY / maxScroll, 1);
       const easeProgress = 1 - Math.pow(1 - scrollProgress, 4);
-
-      const minWidth = 620;
+      const minWidth = 600;
       const maxWidth = window.innerWidth * 0.8;
       const currentWidth = maxWidth - (maxWidth - minWidth) * easeProgress;
 
       if (window.innerWidth >= 768) {
-        nav?.style.setProperty("width", `${currentWidth}px`);
+        nav?.style.setProperty("width", `${Math.max(currentWidth, minWidth)}px`);
       }
     } else {
       nav?.classList.remove("scrolling");
-      // nav?.style.setProperty("width", "80%");
+      nav?.style.removeProperty("width");
     }
     if (window.innerWidth < 768) {
       // Small buffer (e.g. 10px) to prevent accidental hiding on "jittery" scrolls
@@ -282,11 +294,18 @@ const navItems: NavItem[] = [
   );
 
   //smooth scrolling to a linked section
-  document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+  document.querySelectorAll('nav a[href*="#"]').forEach((anchor) => {
     anchor.addEventListener("click", function (e) {
-      e.preventDefault();
       const target = e.currentTarget as HTMLAnchorElement;
-      const targetId = target.getAttribute("href")?.substring(1) || "";
+      const href = target.getAttribute("href") || "";
+      const targetUrl = new URL(href, window.location.origin);
+
+      if (targetUrl.pathname !== window.location.pathname) {
+        return;
+      }
+
+      e.preventDefault();
+      const targetId = targetUrl.hash.substring(1);
       const targetElement = document.getElementById(targetId);
       if (targetElement) {
         targetElement.scrollIntoView({
@@ -299,15 +318,18 @@ const navItems: NavItem[] = [
   //highlight section by observing visible one on the screen by 50%
   document.addEventListener("DOMContentLoaded", () => {
     const sections = document.querySelectorAll("section[id]");
-    const navLinks = document.querySelectorAll("nav a[href^='#']");
-    const observerOptions = { threshold: 0.5 };
+    const navLinks = document.querySelectorAll("nav a[href*='#']");
+    const observerOptions = {
+      threshold: 0,
+      rootMargin: "-40% 0px -55% 0px",
+    };
 
     const observerCallback = (entries: IntersectionObserverEntry[]) => {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
           navLinks.forEach((link) => link.classList.remove("active"));
           const id = entry.target.getAttribute("id");
-          const activeLink = document.querySelector(`nav a[href="#${id}"]`);
+          const activeLink = document.querySelector(`nav a[href="/#${id}"], nav a[href="#${id}"]`);
           if (activeLink) {
             activeLink.classList.add("active");
           }

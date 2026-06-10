@@ -1,20 +1,20 @@
 [
   {
-    "title": "Personal Portfolio Website",
-    "description": "A personal portfolio website built from an Astro template to present academic background, technical interests, projects, and contact information in a clean web format.",
-    "images": ["astro-01.webp", "astro-02.jpeg"],
-    "tech": ["Astro", "Tailwind CSS", "HTML", "CSS"],
-    "platforms": ["web"],
-    "link": "",
-    "category": "Portfolio"
+    "title": "Almond Tracker",
+    "description": "A Flutter app for tracking daily almond intake with profile setup, maintenance calorie estimates, one-tap logging, custom entries, warning states, and local history.",
+    "images": ["#"],
+    "tech": ["Flutter", "Dart"],
+    "platforms": ["cellphone", "android"],
+    "link": "https://github.com/Emir-A/Almond-Tracker",
+    "category": "Mobile App"
   },
   {
-    "title": "Demo Mobile App",
-    "description": "A high-performance mobile application built with modern frameworks to showcase technical expertise.",
-    "images": ["astro-02.jpeg", "#"],
-    "tech": ["Flutter", "Dart", "REST API"],
-    "platforms": ["apple-ios", "android"],
-    "link": "",
-    "category": "Hobby"
+    "title": "Local PDF Maker",
+    "description": "A local-first PDF tools web app with React, Vite, Tailwind CSS, and an Express backend for merge, split, extract, rotate, compress, and image-to-PDF workflows.",
+    "images": ["#"],
+    "tech": ["React", "Vite", "Tailwind CSS", "Express", "Node.js"],
+    "platforms": ["web", "server"],
+    "link": "https://github.com/Emir-A/local-pdf-maker",
+    "category": "Web Tool"
   }
 ]

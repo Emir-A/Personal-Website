@@ -1,35 +1,35 @@
 {
   "categories": [
     {
-      "title": "Mobile Development",
+      "title": "Mobile App Development",
       "skills": [
-        { "name": "Flutter", "level": 3, "icon": "skill-icons:flutter-dark" },
-        { "name": "Dart", "level": 3, "icon": "skill-icons:dart-dark" },
-        { "name": "Kotlin", "level": 1, "icon": "skill-icons:kotlin-dark" }
+        { "name": "Flutter", "level": 1, "icon": "skill-icons:flutter-dark" },
+        { "name": "Dart", "level": 1, "icon": "skill-icons:dart-dark" }
       ]
     },
     {
-      "title": "Frontend",
+      "title": "Frontend Web",
       "skills": [
-        { "name": "Astro", "level": 2, "icon": "skill-icons:astro" },
+        { "name": "Astro", "level": 1, "icon": "skill-icons:astro" },
         { "name": "HTML", "level": 2, "icon": "skill-icons:html" },
-        { "name": "CSS", "level": 2, "icon": "skill-icons:css" },
-        { "name": "Tailwind CSS", "level": 1, "icon": "skill-icons:tailwindcss-dark" }
+        { "name": "CSS", "level": 2, "icon": "skill-icons:css" }
       ]
     },
     {
-      "title": "Backend",
+      "title": "Backend And APIs",
       "skills": [
-        { "name": "FastAPI", "level": 2, "icon": "skill-icons:fastapi" },
-        { "name": "Python", "level": 2, "icon": "skill-icons:python-dark" },
-        { "name": "Firebase", "level": 3, "icon": "vscode-icons:file-type-firebase" }
+        { "name": "Node.js", "level": 2, "icon": "skill-icons:nodejs-dark" },
+        { "name": "Express", "level": 2, "icon": "skill-icons:expressjs-dark" }
       ]
     },
     {
-      "title": "Database",
+      "title": "Development And Security Tools",
       "skills": [
-        { "name": "SQLite", "level": 3, "icon": "skill-icons:sqlite" },
-        { "name": "PostgreSQL", "level": 2, "icon": "skill-icons:postgresql-dark" }
+        { "name": "Docker", "level": 2, "icon": "skill-icons:docker" },
+        { "name": "Git", "level": 2, "icon": "skill-icons:git" },
+        { "name": "Wireshark", "level": 2, "icon": "mdi:shark-fin" },
+        { "name": "Burp Suite", "level": 2, "icon": "mdi:security-network" },
+        { "name": "Linux", "level": 2, "icon": "skill-icons:linux-dark" }
       ]
     }
   ]
