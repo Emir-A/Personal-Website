@@ -1,105 +1,125 @@
-# CareerPortfolio: Data-Driven Astro SSG
-Live Demo: [careerportofio.netlify.app](https://careerportofio.netlify.app)
+# Emyr Fauzan Portfolio
 
-[![Astro](https://img.shields.io/badge/Astro-FF5D01?logo=astro&logoColor=white)](https://astro.build/)
-[![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
-[![Contributions Welcome](https://img.shields.io/badge/🤝_Contributions-Welcome-blue)](CONTRIBUTING.md)
+A responsive personal portfolio website created for an individual UI/UX web development assignment. The website introduces me, presents my experience and projects, lists the technologies I use, and provides ways to contact me.
 
-A high-performance, responsive portfolio built with **Astro**, **Tailwind CSS**, and **Native Browser Animations**. Designed to be 100% data-driven and easy to customize as a reusable template.
+## Links
 
-## 🌟 Highlights
-- **Zero-JS by Default:** Leveraging Astro's islands architecture.
-- **JSON-First:** Update your information in `src/data/` without touching any code.
-- **Built-in Themes**: Switch between multiple professional color palettes and light/dark modes from a single config file.
-- **Fully Responsive:** Optimized for mobile, tablet, and desktop.
-- **Performance:** Optimized for perfect Lighthouse scores.
+- Live website: [careerportofio.netlify.app](https://careerportofio.netlify.app)
+- GitHub repository: [github.com/Emir-A/Personal-Website](https://github.com/Emir-A/Personal-Website)
 
-## 🛠️ Tech Stack
-- **Frontend:** [Astro](https://astro.build/) (Static Site Generation)
-- **Styling:** [Tailwind CSS](https://tailwindcss.com/)
-- **Icons:** [Iconify](https://iconify.design/) via `astro-icon`
-- **Deployment:** [Netlify](https://www.netlify.com)
-- **Backend:** [FastAPI](https://fastapi.tiangolo.com/) *(Works without backend — open source release coming soon)*
+## Website Purpose
 
-## 🚀 Getting Started
-Follow these instructions to get a local copy up and running.
+This portfolio provides a clear overview of my background as an Information Technology student with interests in backend development and cybersecurity. It is designed to help lecturers, classmates, recruiters, and collaborators quickly understand my skills, experience, and projects.
 
-### Prerequisites
-Make sure you have **Astro v6** and **Node.js** (v22.12.0 or higher) installed on your machine.
+## Target Users
 
-### Installation
-1. Click **Use this template** on this repository.
-2. Choose **Create a new repository**.
-3. Clone your new repository: `git clone <your-repo-url>`
-4. Navigate to your repo: `cd <your-repo-name>`
-5. Install dependencies: `npm install`
-6. Start development server: `npm run dev`
-7. Update your content in `/src/data/`
-8. Build and deploy on your preferred platform
+- Lecturers reviewing the UI/UX assignment
+- Recruiters and potential collaborators
+- Other students and technology communities
 
+## Main Features
 
-## 🛠️ How to Customize
-To make this portfolio yours, simply edit the JSON files in `src/data/`.
+- Introduction and profile section
+- Experience and education timeline
+- Project showcase with technology labels and repository links
+- Technology stack grouped by category
+- Contact and social links
+- Light and dark theme support
+- Responsive navigation for desktop, tablet, and mobile
+- Blog section for future technical write-ups
 
-### 🎨 Switching Themes
-This template comes with multiple built-in color palettes. To change the theme of your portfolio, open `src/config.ts` and update the `baseTheme` variable to one of the available options:
+## UI/UX Decisions
 
-```typescript
-export const SITE_CONFIG = {
-  // Options: 'default', 'strategic', 'innovator', 'executive'
-  baseTheme: 'default', 
-};
-```
-*(The template will automatically handle the dark/light mode toggles for whichever base theme you choose!)*
+- **Consistent design:** Repeated colors, spacing, typography, cards, and interaction styles create a cohesive interface.
+- **Clear navigation:** A fixed navigation bar provides direct access to each main section.
+- **Visual hierarchy:** Headings, accent colors, spacing, and card layouts help users scan information quickly.
+- **Responsive layout:** Tailwind CSS breakpoints adapt navigation, typography, grids, and spacing to different screen sizes.
+- **Feedback and affordance:** Hover states, active navigation states, animations, and the theme toggle communicate available interactions.
+- **Readable typography:** Inter and Space Grotesk provide clear body text and distinct headings.
 
-### 📁 Directory Structure
-```
-├── public/              # Global static assets (placeholder.jpg, favicon)
-├── src/
-│   ├── assets/          # Project & Profile images (Supports automatic Astro optimization)
-│   ├── components/      # Reusable Astro components
-│   ├── data/            # JSON files for project data
-│   ├── layouts/         # Layout templates with Meta tags
-│   ├── pages/           # Site routes (index.astro)
-│   └── styles/          # global css styles
-│   └── config.ts        # Global site configuration
-├── astro.config.mjs     # Astro configuration
-└── tsconfig.json        # Typescript configuration
+## Technology Stack
+
+- [Astro](https://astro.build/) for static site generation and component structure
+- [Tailwind CSS](https://tailwindcss.com/) for responsive styling
+- [Astro Icon](https://www.astroicon.dev/) and Iconify for icons
+- TypeScript and JavaScript for interactive behavior
+- Netlify for deployment
+
+## Project Screenshots
+
+Project cards currently use:
+
+```text
+src/assets/project-screenshot-placeholder.svg
 ```
 
+To add real screenshots:
 
+1. Place the screenshot files in `src/assets/`.
+2. Open `src/data/projects.json`.
+3. Replace `project-screenshot-placeholder.svg` with the screenshot filename.
 
+Example:
 
-#### Useful commands and links for reference:
+```json
+"images": ["almond-tracker-home.png", "almond-tracker-history.png"]
+```
 
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
+Multiple images are displayed as an automatic slideshow.
 
-Tailwind CSS: `npx astro add tailwind`
+## Running Locally
 
-Inter font: `npm install @fontsource-variable/inter` 
+Requirements:
 
-Space Grotesk font: `npm install @fontsource-variable/space-grotesk`
+- Node.js 22.12.0 or newer
+- npm
 
-Astro-icon: `npx astro add astro-icon`
+```bash
+git clone https://github.com/Emir-A/Personal-Website.git
+cd Personal-Website
+npm install
+npm run dev
+```
 
-Material Desing Icons: `npm install @iconify-json/mdi`
+The development server is available at `http://localhost:4321`.
 
-https://docs.astro.build/en/guides/styling/#add-tailwind-4
+## Quality Checks
 
-https://www.astroicon.dev
+```bash
+npm run build
+npm run astro -- check
+```
 
-https://icon-sets.iconify.design/mdi/?category=Material
+## Project Structure
 
-## 🤝 Contributing
-Contributions are welcome!  
-Please read the [Contributing Guide](CONTRIBUTING.md) before opening a PR.
+```text
+public/                 Static public files
+src/
+  assets/               Profile and project images
+  components/           Reusable Astro components
+  content/blog/         Blog posts
+  data/                 Portfolio content in JSON files
+  layouts/              Shared page layout
+  pages/                Website routes
+  styles/               Global styles and themes
+```
 
-## 📝 License
-This project is licensed under the [MIT License](LICENSE)
+## Customizing Content
+
+Most portfolio content can be updated without editing component markup:
+
+- `src/data/home.json`: profile details and social links
+- `src/data/career.json`: experience and education
+- `src/data/projects.json`: projects and screenshots
+- `src/data/tech.json`: technologies and skill levels
+- `src/config.ts`: active color theme
+
+## Deployment
+
+The website is deployed on Netlify and configured as a static Astro site. A production build is generated with:
+
+```bash
+npm run build
+```
+
+The generated website is written to the `dist/` directory.

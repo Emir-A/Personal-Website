@@ -2,7 +2,7 @@
   {
     "title": "Almond Tracker",
     "description": "A Flutter app for tracking daily almond intake with profile setup, maintenance calorie estimates, one-tap logging, custom entries, warning states, and local history.",
-    "images": ["#"],
+    "images": [""],
     "tech": ["Flutter", "Dart"],
     "platforms": ["cellphone", "android"],
     "link": "https://github.com/Emir-A/Almond-Tracker",
@@ -11,7 +11,7 @@
   {
     "title": "Local PDF Maker",
     "description": "A local-first PDF tools web app with React, Vite, Tailwind CSS, and an Express backend for merge, split, extract, rotate, compress, and image-to-PDF workflows.",
-    "images": ["#"],
+    "images": ["PDF.png"],
     "tech": ["React", "Vite", "Tailwind CSS", "Express", "Node.js"],
     "platforms": ["web", "server"],
     "link": "https://github.com/Emir-A/local-pdf-maker",
